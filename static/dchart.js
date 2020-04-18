@@ -5,22 +5,22 @@ function displayLineChart() {
             {
                 label: "heart",
                 fillColor: "rgba(255,255,255,0)",
-                strokeColor: "rgba(210,0,0,1)",
-                pointColor: "rgba(210,0,0,1)",
+                strokeColor: "rgba(249,93,83,1)",
+                pointColor: "rgba(249,93,83,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(210,0,0,1)",
+                pointHighlightStroke: "rgba(249,93,83,1)",
         		borderWidth:10,
                 data: [20, 3, 5, 7, 11, 13, 17, 19, 23, 29]
             },
             {
                 label: "temp",
                 fillColor: "rgba(255,255,255,0)",
-                strokeColor: "rgba(135,0,165,1)",
-                pointColor: "rgba(135,0,165,1)",
+                strokeColor: "rgba(185,37,218,1)",
+                pointColor: "rgba(185,37,218,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(135,0,165,1)",
+                pointHighlightStroke: "rgba(185,37,218,1)",
                 data: [10, 1, 1, 2, 3, 5, 8, 13, 21, 34]
             },
                  {

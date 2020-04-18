@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
-    <link rel="stylesheet" href="static/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="static/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="static/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="static/mediaa.css">
@@ -14,38 +15,29 @@
 
 <body onload="displayLineChart();">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="#">SmartMachine</a>
+        <div class="container"><a class="navbar-brand logo" href="#">SmartMachine</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"></button>
             <div class="collapse navbar-collapse" id="navcol-1"></div>
         </div>
     </nav>
-    <div class="col" style="width: 379px;height: 63px;"></div>
+    <div class="col" style="width: 411px;height: 98px;"></div>
     <div style="margin: 15px;">
         <div class="container">
-            <div class="row" style="height: 530px;">
-                <div class="col-md-6 col-lg-6 offset-lg-0 text-center" style="height: 250px;width: 170px;margin: 0px;padding: 10px;">
-                    <h1 style="font-size: 26px;">Heart Rate</h1>
-                    <div class="text-center d-flex justify-content-center align-items-center" style="width: 141px;height: 37px;"><i class="fa fa-heart align-items-end flash animated" style="color: rgb(249,93,83);font-size: 36px;padding: 11px;margin: 0px;width: 43px;height: 46px;"></i><span id="heart_rate" style="font-size: 45px;height: 55px;width: 86px;">78</span></div>
-			<div id="chartContainer" class="heart_image" style="margin-top: 22px;">
-  <canvas id="lineChart" class="heart_image" style="margin-top: 22px;"></canvas>
-			</div>		
-		</div>
-                <div class="col-md-6 text-center" style="width: 170px;height: 250px;padding: 10px;">
-                    <h1 style="font-size: 26px;">Temperature</h1>
-                    <div class="text-center d-flex justify-content-center align-items-center" style="width: 141px;height: 37px;"><i class="fa fa-thermometer-three-quarters align-items-end flash animated" style="color: rgb(249,93,83);font-size: 36px;padding: 11px;margin: 0px;width: 38px;height: 46px;"></i><span id="temperature" style="font-size: 45px;height: 55px;width: 86px;">78</span></div>
-                    <img
-                        src="data:image/png;base64,{{ plot_url }}" class="heart_image" style="margin-top: 22px;"></div>
-                <div class="col-md-6 text-center" style="width: 170px;height: 250px;margin: 0px;padding: 10px;">
-                    <h1 style="font-size: 26px;">Stress</h1>
-                    <div class="text-center d-flex flex-row justify-content-center align-items-center m-auto" style="width: 141px;height: 73px;margin: 0px;margin-top: 0px;margin-right: 0px;"><i class="fa fa-warning align-items-end flash animated" style="color: rgb(249,93,83);font-size: 34px;padding: 0px;margin: 0px;width: 38px;height: 43px;margin-top: 72px;"></i><span style="font-size: 42px;height: 0px;width: 118px;">100%</span></div>
+            <div class="row" style="height: 435px;margin-right: -22px;margin-left: -22px;">
+                <div class="col-6 col-md-6 col-lg-6 offset-lg-0 text-center" style="height: 115px;width: 165px;margin: 0px;padding: 0px;">
+                    <h1 style="font-size: 25px;filter: blur(0px);font-style: normal;">Heart Rate</h1>
+                    <div class="text-center d-flex justify-content-center align-items-center" style="width: 141px;height: 52px;"><i class="fa fa-heart align-items-end flash animated" style="color: rgb(249,93,83);font-size: 36px;padding: 11px;margin: 0px;width: 43px;height: 46px;"></i><span id="heart_rate" style="font-size: 45px;height: 55px;width: 86px;">78</span></div>
                 </div>
-                <div class="col-md-6 text-center" style="height: 250px;width: 170px;padding: 14px;">
-                    <h1 style="font-size: 26px;">Chart of Stress</h1><img src="data:image/png;base64,{{ plot_url }}" class="heart_image" style="margin-top: 22px;"></div>
+                <div class="col-6 col-md-6 text-center" style="width: 165px;height: 115px;padding: 0px;">
+                    <h1 style="font-size: 25px;filter: blur(0px);font-style: normal;">Temperature<br></h1>
+                    <div class="text-center d-flex justify-content-center align-items-center" style="width: 141px;height: 52px;"><i class="fa fa-thermometer-three-quarters align-items-end flash animated" style="color: rgb(185,37,218);font-size: 36px;padding: 11px;margin: 0px;width: 44px;height: 57px;"></i><span id="temperature" style="font-size: 45px;height: 64px;width: 62px;">78</span></div>
+                </div>
+                <div class="col-12 col-md-6 text-center" style="width: 337px;height: 105px;margin: 0px;padding: 0px;">
+                    <h1 style="font-size: 26px;">Stress</h1>
+                    <div class="text-center d-flex justify-content-center align-items-center" style="width: 337px;height: 52px;"><i class="fas fa-percent align-items-end flash animated" style="color: rgb(80,80,249);font-size: 33px;padding: 11px;margin: 0px;width: 47px;height: 45px;"></i><span id="heart_rate" style="font-size: 45px;height: 55px;width: 86px;">100</span></div>
+                </div>
+                <div class="col-12 col-md-6 text-center d-flex justify-content-center align-items-center" style="height: 250px;width: 330px;padding: 14px;">
+		<canvas id="lineChart" class="heart_image" style="margin-top: 8px;height: 202px;width: 330px;"></canvas>
             </div>
-<form action="" method="post">
-	<input type="text" id="heart_firebase" name=hf value="{{request.form.hf }}">
-	<input type="hidden" id="temp_firebase" name=tf value="{{request.form.tf }}">
-	<input type="hidden" id="stress_firebase" name=sf value="{{request.form.sf }}">	
-</form>
         </div>
     </div><script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
@@ -68,13 +60,12 @@
   firebase.analytics();
     var dtb = firebase.database();
     dtb.ref('/heart_rate/heart_rate_1').on('value',snap => 			 	 document.getElementById("heart_firebase").value = snap.val());
-	
+
 </script>
     <script src="static/bootstrap/bootstrap.min.js"></script>
     <script src="static/update.js"></script>
     <script src="static/dchart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
- 
 
 </body>
 
