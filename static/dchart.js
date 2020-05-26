@@ -33,7 +33,7 @@ function stress_2_chart(){
    ctx = new Chart(document.getElementById("lineChart"), {
     type: 'bar',
     data: {
-      labels: ["2 days", "1 day", "now"],
+      labels: ["2 days ago", "1 day ago", "now"],
       datasets: [
         {
           label: "NS",
@@ -86,7 +86,7 @@ function stress_chart() {
     ctx = new Chart(document.getElementById("lineChart"), {
   type: 'line',
   data: {
-    labels: [5,"-",4,"-",3,"-",2,"-",1,"-"],
+    labels: [5,4.5,4,3.5,3,2.5,2,1.5,1,0.5],
     datasets: [{ 
         data: data_no,
         label: "NS",
