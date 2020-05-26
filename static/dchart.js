@@ -1,10 +1,12 @@
 
 stress_chart();
+var ctx;
 //stress now chart
 function selectFunc(){
     var selectBox = document.getElementById("selectBox");
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-	document.getElementById("details").style.visibility = "visible";
+	document.getElementById("tail").style.visibility = "visible";
+	document.getElementById("tail1").style.visibility = "visible";
     if(selectedValue==="1"){
 		stress_chart();
 	}
@@ -27,7 +29,8 @@ function stress_2_chart(){
 		data_no[i]=data_stress["stress"+i]["no_stress"]
 		data_tp[i]=data_stress["stress"+i]["time_pressure"]
 	}
-   new Chart(document.getElementById("lineChart"), {
+	if(ctx!=undefined) ctx.destroy();
+   ctx = new Chart(document.getElementById("lineChart"), {
     type: 'bar',
     data: {
       labels: ["2 days", "1 day", "now"],
@@ -65,8 +68,9 @@ function stress_2_chart(){
 });
 }
 function stress_chart() {
-	
-	document.getElementById("details").style.visibility = "visible";
+	document.getElementById("tail").style.visibility = "visible";
+	document.getElementById("tail1").style.visibility = "visible";
+	document.getElementById("heart_rate1").innerHTML = "ITR";
 	document.getElementById("selectBox").value=1;
 	dtb.ref('/line').once('value',snap => {
 	data_stress = snap.val();
@@ -78,7 +82,8 @@ function stress_chart() {
 		data_no[i]=data_stress[i+1]["no_stress"]
 		data_tp[i]=data_stress[i+1]["tp"]
 	}
-    var ctx = new Chart(document.getElementById("lineChart"), {
+	if(ctx!=undefined) ctx.destroy();
+    ctx = new Chart(document.getElementById("lineChart"), {
   type: 'line',
   data: {
     labels: [5,"-",4,"-",3,"-",2,"-",1,"-"],
@@ -118,7 +123,9 @@ function stress_chart() {
 
 //heart rate chart
 function heart_chart() {
-	document.getElementById("details").style.visibility = "hidden";
+	document.getElementById("tail").style.visibility = "hidden";
+	document.getElementById("tail1").style.visibility = "hidden";
+	document.getElementById("heart_rate1").innerHTML = "HR";
 	document.getElementById("selectBox").value=0;
 	dtb.ref('/heart_rate').once('value',snap => {
 	heart_data = snap.val();
@@ -129,7 +136,8 @@ function heart_chart() {
 	for(var i=1;i<heart_data.length-1;i++){
 		labels[i]='-';
 	}
-    var ctx = new Chart(document.getElementById("lineChart"), {
+	if(ctx!=undefined) ctx.destroy();
+    ctx = new Chart(document.getElementById("lineChart"), {
   type: 'line',
   data: {
     labels: labels,
