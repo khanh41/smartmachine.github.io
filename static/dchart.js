@@ -129,7 +129,7 @@ function heart_chart() {
 	document.getElementById("selectBox").value=0;
 	dtb.ref('/heart_rate').once('value',snap => {
 	heart_data = snap.val();
-	heart_data=heart_data.map(parseFloat).reverse();
+	heart_data=heart_data.map(parseFloat);
 	labels=[];
 	labels[0]=2;
 	labels[heart_data.length-1]=0;
