@@ -179,6 +179,8 @@ function heart_chart() {
       display: true,
       text: '2 minutes ago'
     },
+	responsive:true,
+	maintainAspectRatio: false,
 	scales:
         {
             yAxes: [{
