@@ -5,9 +5,6 @@ var ctx;
 function selectFunc(){
     var selectBox = document.getElementById("selectBox");
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-	document.getElementById("tail").style.visibility = "visible";
-	document.getElementById("tail2").style.visibility = "visible";
-	document.getElementById("tail1").style.visibility = "visible";
     if(selectedValue==="1"){
 		stress_chart();
 	}
@@ -20,15 +17,14 @@ function selectFunc(){
 function stress_2_chart(){
 	data_list = []
 	dtb.ref('/stress/').once('value',snap => {
-   if(data_list !== snap.val()){
    data_stress = snap.val();
    data_itr =[]
 	data_no =[]
 	data_tp =[]
 	for(var i=2;i>=0;i--){
-		data_itr[i]=data_stress["stress"+i]["interruption"]
-		data_no[i]=data_stress["stress"+i]["no_stress"]
-		data_tp[i]=data_stress["stress"+i]["time_pressure"]
+		data_itr[2-i]=data_stress["stress"+i]["interruption"]
+		data_no[2-i]=data_stress["stress"+i]["no_stress"]
+		data_tp[2-i]=data_stress["stress"+i]["time_pressure"]
 	}
 	if(ctx!=undefined) ctx.destroy();
    ctx = new Chart(document.getElementById("lineChart"), {
@@ -67,13 +63,10 @@ function stress_2_chart(){
         }
 });
 
-	check_char = true;}
+	check_char = true;
 });
 }
 function stress_chart() {
-	document.getElementById("tail").style.visibility = "visible";
-	document.getElementById("tail1").style.visibility = "visible";
-	document.getElementById("tail2").style.visibility = "visible";
 	document.getElementById("heart_rate1").innerHTML = "ITR";
 	document.getElementById("selectBox").value=1;
 	dtb.ref('/line').once('value',snap => {
@@ -82,9 +75,9 @@ function stress_chart() {
 	data_no =[]
 	data_tp =[]
 	for(var i=9;i>=0;i--){
-		data_itr[i]=data_stress[i+1]["itr"]
-		data_no[i]=data_stress[i+1]["no_stress"]
-		data_tp[i]=data_stress[i+1]["tp"]
+		data_itr[9-i]=data_stress[i+1]["itr"]
+		data_no[9-i]=data_stress[i+1]["no_stress"]
+		data_tp[9-i]=data_stress[i+1]["tp"]
 	}
 	if(ctx!=undefined) ctx.destroy();
     ctx = new Chart(document.getElementById("lineChart"), {
@@ -141,10 +134,6 @@ function heart_chart() {
                 }
             }
         });
-	document.getElementById("tail").style.visibility = "hidden";
-	document.getElementById("tail1").style.visibility = "hidden";
-	document.getElementById("tail2").style.visibility = "hidden";
-	document.getElementById("heart_rate1").innerHTML = "HR";
 	document.getElementById("selectBox").value=0;
 	dtb.ref('/heart_rate').once('value',snap => {
 	heart_data = snap.val();
@@ -155,6 +144,7 @@ function heart_chart() {
 	for(var i=1;i<heart_data.length-1;i++){
 		labels[i]='';
 	}
+	heart_data.reverse();
 	if(ctx!=undefined) ctx.destroy();
     ctx = new Chart(document.getElementById("lineChart"), {
   type: 'line',
