@@ -1,4 +1,4 @@
-
+check_char = true;
 stress_chart();
 var ctx;
 //stress now chart
@@ -6,6 +6,7 @@ function selectFunc(){
     var selectBox = document.getElementById("selectBox");
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 	document.getElementById("tail").style.visibility = "visible";
+	document.getElementById("tail2").style.visibility = "visible";
 	document.getElementById("tail1").style.visibility = "visible";
     if(selectedValue==="1"){
 		stress_chart();
@@ -64,12 +65,15 @@ function stress_2_chart(){
                 }]
             }                
         }
-});}
+});
+
+	check_char = true;}
 });
 }
 function stress_chart() {
 	document.getElementById("tail").style.visibility = "visible";
 	document.getElementById("tail1").style.visibility = "visible";
+	document.getElementById("tail2").style.visibility = "visible";
 	document.getElementById("heart_rate1").innerHTML = "ITR";
 	document.getElementById("selectBox").value=1;
 	dtb.ref('/line').once('value',snap => {
@@ -119,12 +123,27 @@ function stress_chart() {
     }
   }
 });
+	check_char = true;
 });}
 
 //heart rate chart
 function heart_chart() {
+	Chart.pluginService.register({
+            beforeDraw: function (chart, easing) {
+                if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
+                    var ctx = chart.chart.ctx;
+                    var chartArea = chart.chartArea;
+
+                    ctx.save();
+                    ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
+                    ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+                    ctx.restore();
+                }
+            }
+        });
 	document.getElementById("tail").style.visibility = "hidden";
 	document.getElementById("tail1").style.visibility = "hidden";
+	document.getElementById("tail2").style.visibility = "hidden";
 	document.getElementById("heart_rate1").innerHTML = "HR";
 	document.getElementById("selectBox").value=0;
 	dtb.ref('/heart_rate').once('value',snap => {
@@ -134,7 +153,7 @@ function heart_chart() {
 	labels[0]=2;
 	labels[heart_data.length-1]=0;
 	for(var i=1;i<heart_data.length-1;i++){
-		labels[i]='-';
+		labels[i]='';
 	}
 	if(ctx!=undefined) ctx.destroy();
     ctx = new Chart(document.getElementById("lineChart"), {
@@ -143,9 +162,11 @@ function heart_chart() {
     labels: labels,
     datasets: [{ 
         data: heart_data,
-        borderColor: "#F95D53",
-		backgroundColor:"#F95D53",
-        fill: false
+        borderColor: "#31C2DE",
+		backgroundColor:"#5BB756",
+        fill: false,
+		borderWidth:1,
+		pointRadius:0
       }
     ]
   },
@@ -157,7 +178,24 @@ function heart_chart() {
     title: {
       display: true,
       text: '2 minutes ago'
+    },
+	scales:
+        {
+            yAxes: [{
+                gridLines : {
+                    display : false
+                }
+            }],
+			xAxes: [{
+				gridLines: {
+					display: false
+			  },
+			}]
+        },
+		 chartArea: {
+        backgroundColor: 'rgb(0, 30, 60)'
     }
   }
-});
+	});
+	check_char = false;
 });}

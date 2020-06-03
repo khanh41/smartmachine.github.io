@@ -31,13 +31,14 @@
                     <h1 class="text-center" style="font-size: 26px;width: 180px;">Stress</h1>
                     <div class="text-center d-flex justify-content-center align-items-center" style="width: 179px;height: 52px;"><span class="text-center" id="stress" style="font-size: 30px;height: 55px;width: 179px;color: rgb(82,137,191);">100</span></div>
                 </div>
+				<div class="col text-center" style="margin-top: 10px;"><button class="btn btn-primary" type="button" onclick="heart_chart()" style="background-color: rgb(217,46,66);">Hear-rate Chart</button></div>
+               
 				<div class="col text-center" style="margin-top: 10px;"><button class="btn btn-primary" type="button" onclick="stress_chart()" style="background-color: rgb(26,195,94);">Stress Chart</button>
 					<select id="selectBox" class="border-dark form-control-sm" style="margin-left: 0px;margin-top: 15px;" onchange="selectFunc();">
 						<optgroup label="Stress chart">
 							<option value="1" selected="">Now</option>
 							<option value="2" >2 days ago</option></optgroup></select></div>
-				<div class="col text-center" style="margin-top: 10px;"><button class="btn btn-primary" type="button" onclick="heart_chart()" style="background-color: rgb(217,46,66);">Hear-rate Chart</button></div>
-                <div class="col-12 col-md-6 text-center d-flex justify-content-center align-items-center" style="height: 250px;width: 330px;padding: 14px;">
+				 <div class="col-12 col-md-6 text-center d-flex justify-content-center align-items-center" style="height: 250px;width: 330px;padding: 14px;">
 		<canvas id="lineChart" class="heart_image" style="margin-top: 8px;height: 202px;width: 330px;"></canvas>
             </div>
         </div>
@@ -49,7 +50,7 @@
 			 <div id="tail" class="col-md-4 text-left" style="width: 97px;height: 37px;">
                     <div class="text-center d-flex justify-content-center align-items-center" style="width: 97px;height: 53px;"><i class="fa fa-square align-items-end flash animated" style="color: rgb(185,37,218);font-size: 18px;padding: 0px;margin: 0px;width: 21px;height: 31px;"></i><span id="heart_rate" style="font-size: 17px;height: 38px;width: 53px;">TPS</span></div>
                 </div>
-                <div class="col-md-4 text-center" style="width: 97px;height: 37px;">
+                <div id="tail2" class="col-md-4 text-center" style="width: 97px;height: 37px;">
                     <div class="text-center d-flex justify-content-center align-items-center" style="width: 97px;height: 53px;"><i class="fa fa-square align-items-end flash animated" style="color: rgb(249,93,83);font-size: 18px;padding: 0px;margin: 0px;width: 21px;height: 31px;"></i><span id="heart_rate1" style="font-size: 17px;height: 38px;width: 53px;">ITR</span></div>
                 </div>
                
@@ -62,7 +63,7 @@
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-12" style="height: 42px;"><label class="col-form-label">ITR: Interruption<br>TPS: Time pressure<br>NS: No stress<br>HR: Hear rate<br></label></div>
+                <div class="col-md-12" style="height: 42px;"><label class="col-form-label">ITR: Interruption<br>TPS: Time pressure<br>NS: No stress</label></div>
             </div>
         </div>
     </div>
