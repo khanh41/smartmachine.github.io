@@ -24,3 +24,6 @@ dtb.ref('/stress').on('value',snap => {if(snap.val()!=list_str) {
 	dtb.ref('/stress_now').once('value',snap => document.getElementById("stress").innerHTML = snap.val());
 	}
 });
+dtb.ref('/time_update').on('value',snap => {
+	document.getElementById("time_update").innerHTML = snap.val();
+});
