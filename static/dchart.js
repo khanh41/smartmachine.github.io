@@ -57,7 +57,11 @@ function stress_2_chart(){
                 }],
                 yAxes: [{
                     id: 'y-axis-1',
-                    ticks: {beginAtZero: true}
+                    ticks: {beginAtZero: true},
+					scaleLabel: {
+						display: true,
+						labelString: '(times)'
+						}
                 }]
             }                
         }
@@ -113,7 +117,25 @@ function stress_chart() {
     title: {
       display: true,
       text: '5 hours ago'
-    }
+    },
+		scales: {
+                xAxes: [{
+                    id: 'x-axis-1',
+					scaleLabel: {
+						display: true,
+						labelString: '(hours ago)'
+						}
+                }],
+                yAxes: [{
+                    id: 'y-axis-1',
+                    ticks: {beginAtZero: true},
+					scaleLabel: {
+						display: true,
+						labelString: '(times)'
+						}
+                }]
+            }  
+	
   }
 });
 	check_char = true;
@@ -176,12 +198,20 @@ function heart_chart() {
             yAxes: [{
                 gridLines : {
                     display : false
-                }
+                },
+				scaleLabel: {
+					display: true,
+					labelString: '(beats/minutes)'
+					}
             }],
 			xAxes: [{
 				gridLines: {
 					display: false
 			  },
+				scaleLabel: {
+					display: true,
+					labelString: '(minutes ago)'
+					}
 			}]
         },
 		 chartArea: {
